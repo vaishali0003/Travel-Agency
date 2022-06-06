@@ -1,0 +1,856 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* NAVBAR CSS */
+
+.navBar {
+  padding: 0.6rem 0;
+  background-color: white;
+  box-shadow: 0 0 20px rgb(33 33 33 / 30%);
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content: space-around; */
+}
+
+.logo {
+  width: 6.4rem;
+}
+
+.logoHeading {
+  color: #8c4e97;
+  margin-left: 4px;
+  font-size: 2.5rem;
+}
+
+.logo img {
+  height: 100%;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar {
+  width: 74%;
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.searchBar input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 4px;
+  padding: 0.6rem 0.7rem;
+  background-color: #e2e2e2;
+  border-radius: 4px;
+}
+
+.searchIcon {
+  width: 1.27rem;
+  position: absolute;
+  top: 13px;
+  right: 8px;
+}
+
+.right_list_item_img {
+  display: flex;
+  justify-content: center;
+  padding: 8px 9px;
+  width: 3rem;
+  margin-left: 14px;
+  border-radius: 4px;
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+
+.right_list_item_img:hover {
+  background-color: #c513c5;
+}
+
+.right_list_item_img img {
+  height: 100%;
+  width: 100%;
+}
+
+
+.main {
+  background-color: #e3e3e4;
+  min-height: 100vh;
+}
+
+/* HOME SECTION CSS */
+
+.homeSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  /* padding: 4rem 0; */
+}
+
+.homeSecImg {
+  width: 45.5rem;
+}
+
+.homeSecImg img {
+  height: 100%;
+  width: 100%;
+}
+
+.homeSec2 {
+  padding-left: 6rem;
+  padding-right: 1rem;
+}
+
+.h1 {
+  font-weight: 600;
+  font-size: 3.4rem;
+}
+
+.p1 {
+  font-size: 1.15rem;
+}
+
+.btn1 {
+  background-color: orange;
+  border-radius: 0.25rem;
+  padding: 0.56rem 1.2rem;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.3rem;
+}
+
+
+.btn1:hover {
+  letter-spacing: 1px;
+}
+
+.journey {
+  border: 2px solid;
+}
+
+.journeyInfo {
+  display: flex;
+  padding: 1.5rem 2rem;
+  position: relative;
+  /* width: 54rem; */
+  background-color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+.journeyInfoForm{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.journeyIn {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0.5rem;
+  color: grey;
+  font-size: 1.2rem;
+  width: 25%;
+}
+
+.journeyIn input {
+  border: none;
+  outline: none;
+  background-color: #e2e2e2;
+  padding: 0.45rem 0.85rem;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.bookBtn {
+  position: absolute;
+  top: 53px;
+  /* width: 8rem; */
+  width: 23%;
+  padding: 0.32rem 0.85rem;
+  text-decoration: none;
+  text-align: center;
+  color: white;
+}
+
+
+/* PACKAGES CSS */
+
+.head {
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-size: 3.2rem;
+}
+
+.card-img-top {
+  width: 25rem !important;
+  height: 19rem !important;
+}
+
+.card {
+  width: 27rem;
+  height: 31rem;
+  align-items: center !important;
+  padding: 0.8rem 0 !important;
+  margin: 0.6rem 0.6rem;
+  border-radius: 6px;
+
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 
+              0 2px 2px rgba(0,0,0,0.11), 
+              0 4px 4px rgba(0,0,0,0.11), 
+              0 6px 8px rgba(0,0,0,0.11),
+              0 8px 16px rgba(0,0,0,0.11);
+  /* margin: 0.8rem 0; */
+  /* margin: 0 1rem; */
+}
+
+.card-title {
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.packagesSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 6rem 0;
+}
+
+.cardTag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 2px 4px;
+  border-radius: 4px;
+  left: 20px;
+  top: 18px;
+  background-color: #0000009c;
+}
+
+.cardTag img {
+  width: 24px;
+  height: 24px;
+}
+
+.location {
+  font-weight: 500;
+  font-size: 21px;
+  margin-bottom: 0 !important;
+  color: white;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+}
+
+.minTitle {
+  margin-left: 4px;
+  text-decoration: line-through;
+}
+
+
+/* SERVICES SECTION CSS */
+
+.servicesSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.service1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+
+.serviceImg {
+  width: 43px;
+  height: 49px;
+}
+
+.num {
+  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 3.4rem;
+}
+
+.card2 {
+  height: 14rem;
+  padding: 1.2rem 0 !important;
+}
+
+
+/* TESTIMONIALS SECTION */
+.testimonialsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+}
+
+.card3 {
+  height: 19rem;
+}
+
+.tSectitle {
+  text-align: center;
+  width: 100%;
+  /* margin-top: 0.5rem; */
+  margin: 1rem 0;
+}
+
+.tSec1 {
+  font-weight: 600;
+  margin-bottom: 0;
+  padding: 7px 11px;
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.tSec11 {
+  font-weight: 600;
+  margin-bottom: 0;
+  padding: 3px 0px;
+  background-color: #d3cfcf;
+  border-radius: 5px;
+  font-size: 1.8rem;
+}
+
+.tSec-card-text {
+  width: 100%;
+  text-align: center;
+}
+
+.tSectitle1 {
+  font-size: 3.4rem;
+  letter-spacing: 1px;
+  color: #881888;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+
+/* REVIEWS SECTION CSS */
+
+.reviewsSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+}
+
+.reviewBox {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  height: 19rem;
+}
+
+.stars {
+  width: 8rem;
+}
+
+.clientName {
+  margin: 1rem 0;
+  font-size: 2.1rem;
+  font-weight: 600;
+}
+
+.client-review{
+  font-size: 1.1rem;
+}
+
+.clientImg {
+  width: 6rem;
+}
+
+
+/* CONTACT US SECTION */
+
+.contactSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7rem;
+}
+
+.form-control:focus {
+  border-color: #cccccc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.fIn {
+  padding: 0.6rem 0.75rem;
+  font-size: 1.1rem;
+}
+
+.sendMsgBtn {
+  width: 12rem;
+  padding: 0.4rem 0;
+}
+
+
+/* FOOTER SECTION CSS */
+
+.footerSection {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  padding: 1rem 1rem;
+  background-color: white;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerH {
+  font-weight: 600;
+  margin: 1rem 0;
+  font-size: 2.1rem;
+}
+
+.footerSection ul {
+  padding-left: 0;
+}
+
+.footList li {
+  list-style: none;
+}
+
+.footLi {
+  display: flex;
+  font-size: 1.1rem;
+  margin: 0.2rem 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.footLiImg {
+  width: 1.8rem;
+  height: 1.8rem;
+  margin-right: 4px;
+}
+
+.locName {
+  margin-left: 3px;
+  font-size: 1.25rem;
+}
+
+.locName:hover {
+  letter-spacing: 1px;
+  text-decoration: underline;
+
+}
+
+/* LOGIN BOX CSS */
+
+.loginBox {
+  position: absolute;
+  width: 27rem;
+  padding: 1.5rem 1.5rem;
+  background-color: white;
+  margin-top: 20px;
+  right: 20px;
+  box-shadow: 0 0 20px rgb(33 33 33 / 30%);
+  display: none;
+}
+
+.loginBtn1 {
+  width: 100%;
+  padding: 0.25rem 0.85rem;
+}
+
+.lIn {
+  color: grey;
+  font-size: 1.1rem;
+}
+
+/* NAVBAR 1 CSS */
+
+.nav-1 {
+  position: absolute;
+  width: 16rem;
+  padding: 1rem 1.4rem;
+  background-color: white;
+  right: 20px;
+  border-radius: 6px;
+  display: none;
+}
+
+.nav-1 ul {
+  padding-left: 0;
+}
+
+
+.nav-list-item {
+  list-style: none;
+    margin: 0.5rem 0;
+    cursor: pointer;
+    color: grey;
+    font-weight: 500;
+    font-size: 1.4rem;
+    padding: 0.6rem 0.5rem;
+    border-radius: 6px;
+}
+
+
+.nav-list-item:hover {
+  color: #c513c5;
+  background-color: rgba(128, 128, 128, 0.248);
+  /* background-color: rgba(255, 255, 255, 0.536); */
+
+}
+
+.nav-list a {
+  text-decoration: none;
+}
+
+/* SIGN UP BOX */
+
+.signUpSection {
+  padding: 2rem 1rem;
+}
+
+.signUpBox {
+  padding: 4.5rem 0;
+}
+
+.signUp {
+  padding: 2rem 2rem !important;
+  background-image: linear-gradient(to right, rgb(20, 0, 204), rgb(0, 180, 255));
+}
+
+.signUpleft {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+
+}
+
+.left1 {
+  margin-top: 8vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.rocketImg {
+  width: 84px;
+  margin-bottom: 10px;
+}
+
+.rocketImg img {
+  height: 100%;
+  width: 100%;
+  filter: invert(1);
+}
+
+.T1 {
+  font-size: 1.9rem;
+}
+
+.login_btn1 {
+  margin-top: 14vh;
+}
+
+.login1 {
+  padding: 5px 51px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: white;
+  color: #2c2ceb;
+}
+
+.switch-button {
+  border: 2px solid;
+  border-radius: 20px;
+  background-color: #1303cd;
+  color: white;
+  height: 37px;
+  width: 190px;
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0.5rem;
+}
+
+/* .c-btn{
+font-size: 16px;
+  padding: 4px 13px;
+  border-radius: 20px;
+  color: #1303cd;
+  background-color: white;
+}  */
+
+.rg1-btn {
+  width: 60%;
+  text-align: center;
+  margin-block: auto;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px 13px;
+  border-radius: 20px;
+  color: #1303cd;
+  background-color: white;
+}
+
+.lg1-btn {
+  width: 40%;
+  text-align: center;
+  margin-block: auto;
+  cursor: pointer
+}
+
+.signUpright {
+  border-top-left-radius: 15% 60%;
+  border-bottom-left-radius: 15% 60%;
+  background-color: #e3e3e4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
+  min-height: 26rem;
+}
+
+.form1 {
+  width: 85%;
+  /* display: none; */
+}
+
+.head1 {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.registerForm input {
+  margin: 8px 0;
+}
+
+.registerForm .gender label {
+  margin-right: 10px;
+}
+
+.button {
+  text-align: right;
+  margin: 1rem 0.5rem;
+}
+
+.reg_btn {
+  padding: 5px 45px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  background-color: #2c2ceb;
+  color: white;
+}
+
+.reg_btn:hover {
+  color: #2c2ceb;
+  background-color: white;
+  border: 2px solid blue;
+}
+
+/* login form css */
+
+.form2 {
+  width: 52%;
+  display: none;
+}
+
+.userImg {
+  width: 80px;
+  margin: 19px auto;
+}
+
+.userImg img {
+  height: 100%;
+  width: 100%;
+  filter: invert(80%);
+}
+
+.SignIn_btn {
+  width: 100%;
+}
+
+
+/* TRACKING PAGE CSS */
+
+.tracking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.trackingBox {
+  padding: 2rem;
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 60%;
+}
+
+.trackingBoxHead1 {
+  font-weight: 600;
+  padding: 0.7rem 0;
+}
+
+
+.trackingBoxHead2 {
+  padding: 0.4rem 0;
+}
+
+.trackingBox input {
+  font-size: 1.25rem;
+}
+
+.idSubmitBtn {
+  margin: 1rem 0;
+  font-size: 1.3rem;
+  width: 8rem;
+}
+
+
+/* BOOKING Section CSS */
+
+.book{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.busesInfo{
+  width: 100%;
+  display: flex;
+    flex-direction: column;
+}
+
+.busBox1{
+  border: 2px solid black;
+}
+
+.busBox2{
+  border: 2px solid black;
+}
+
+/* Darkmode css */
+
+.navBarDark {
+  background-color: rgb(63, 63, 63);
+}
+
+.logoDark {
+  filter: invert(1);
+}
+
+.mainDark {
+  background-color: rgb(39, 39, 39);
+  color: white;
+}
+
+.homeSec2Dark {
+  color: white;
+}
+
+.btn1Dark {
+  background-color: purple;
+}
+
+.journeyInfoDark {
+  background-color: rgb(63, 63, 63);
+}
+
+.cardDark {
+  background-color: rgb(63, 63, 63);
+  color: white;
+}
+
+.tSec11Dark {
+  background-color: #151414;
+}
+
+.reviewBoxDark {
+  background-color: rgb(63, 63, 63);
+}
+
+.tSectitle1Dark {
+  color: orange;
+}
+
+.footerSectionDark {
+  background-color: #3f3f3f;
+}
+
+.loginBoxDark {
+  background-color: #3f3f3f;
+}
+
+.nav-1-dark {
+  background-color: #3f3f3f;
+}
+
+.nav-list-item-dark {
+  color: white;
+}
+
+.fInDark {
+  background-color: #3f3f3f;
+  border: none;
+}
