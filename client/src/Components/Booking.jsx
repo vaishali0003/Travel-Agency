@@ -10,11 +10,12 @@ const Booking = () => {
         <Book />
         <div className="busesInfo">
           <h1 className="no_of_buses">2 buses found</h1>
-          <div className="buses col-md-10">
+          <div className="buses col-md-10 col-11">
 
            <Bus/>
-            <Seats/>
           </div>
+          
+          <Seats/>
         </div>
       </div>
     </>
