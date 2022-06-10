@@ -1,15 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Book from './Book'
 
 const Home = () => {
-
-    // const [user, setuser] = useState({ from: "", to: "", date: "" })
-
-    // const onChange = (e) => {
-    //     setuser({ ...user, [e.target.name]: e.target.value })
-    //     console.log(user)
-    // }
-
 
     return (
         <>
@@ -17,7 +9,7 @@ const Home = () => {
                 <div className="col-md-10 d-flex justify-content-center align-items-center" style={{ marginBottom: "2rem" }}>
                     <div className="homeSec1">
                         <div className="homeSecImg">
-                            <img src="../images/trip.svg" alt="" />
+                            <img src="../images/trip.svg" alt="img" />
                         </div>
                     </div>
                     <div className="homeSec2">
@@ -30,28 +22,6 @@ const Home = () => {
                 </div>
 
                 <Book/>
-
-                {/* <div className="journeyInfo col-md-10">
-
-                    <form method='POST' className='journeyInfoForm'>
-                        <div className="journeyIn">
-                            <label htmlFor="from">Where From?</label>
-                            <input type="text" name="from" value={user.from} onChange={onChange} />
-                        </div>
-                        <div className="journeyIn">
-                            <label htmlFor="to">Where To?</label>
-                            <input type="text" name="to" value={user.to} onChange={onChange} />
-                        </div>
-                        <div className="journeyIn">
-                            <label htmlFor="from">Date?</label>
-                            <input type="date" name="date" value={user.date} onChange={onChange} />
-                        </div>
-                        <div className="journeyIn">
-                            <NavLink className="btn1 bookBtn" to="/booking">Book Now</NavLink>
-                        </div>
-                    </form>
-
-                </div> */}
 
             </div>
         </>

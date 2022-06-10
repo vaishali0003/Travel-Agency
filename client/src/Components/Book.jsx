@@ -30,7 +30,7 @@ const Book = () => {
                         <input type="date" name="date" value={user.date} onChange={onChange} required/>
                     </div>
                     <div className="journeyIn">
-                        <NavLink className="btn1 bookBtn" to="/booking">Book Now</NavLink>
+                        <NavLink className="btn1 bookBtn" to={`/booking?from=${user.from}&to=${user.to}&date=${user.date}`}>Book Now</NavLink>
                     </div>
                 </form>
 
