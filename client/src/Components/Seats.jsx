@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from "react-router-dom"
 
 const Seats = () => {
   return (
@@ -23,17 +24,16 @@ const Seats = () => {
             </div>
 
             <div className="seats_selected_info">
-<div className="s_info1">
-<p className="bus_info1_item" style={{ fontWeight: "bold" }}>Seats Selected</p>
-<p className="bus_info1_item" style={{margin:"0.2rem 0"}}>UD-17 UD-18</p>
-</div>
+              <div className="s_info1">
+                <p className="bus_info1_item" style={{ fontWeight: "bold" }}>Seats Selected</p>
+                <p className="bus_info1_item" style={{ margin: "0.2rem 0" }}>UD-17 UD-18</p>
+              </div>
 
-            
               <h3 style={{ fontWeight: "bold" }}>$ 0</h3>
             </div>
 
             <div className="book_seats">
-              <button className='btn1 book_seat'>Book Seats</button>
+              <NavLink className='book_seat' to="/booking-confirm">Book Seats</NavLink>
             </div>
 
           </div>

@@ -663,7 +663,7 @@ font-size: 16px;
   flex-direction: column;
   align-items: center;
   padding: 1rem 0;
-  min-height: 26rem;
+  min-height: 27rem;
 }
 
 .form1 {
@@ -677,7 +677,8 @@ font-size: 16px;
 }
 
 .registerForm input {
-  margin: 8px 0;
+  margin: 0.4rem 0;
+  font-size: 1.1rem;
 }
 
 .registerForm .gender label {
@@ -783,7 +784,7 @@ font-size: 16px;
   align-items: center;
 }
 
-.no_of_buses {
+.h1_head {
   margin: 1rem;
   font-weight: 600;
 }
@@ -965,9 +966,101 @@ font-size: 16px;
   margin-bottom: 0;
 }
 
-.book_seat{
+.book_seats{
   width: 100%;
-  padding: 0.24rem 1.2rem;
+  text-align: center;
+}
+
+.book_seat{
+  width: 100% !important;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.32rem 0.85rem;
+  background-color: orange;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* CONFIRM BOOKING CSS */
+
+.bookingConfirm{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookingConfirm1{
+  display: flex;
+  display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem 1.8rem;
+}
+
+.bookingConfirm11{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.bookingConfirm11_1{
+  width: 35%;
+}
+
+.pass_sec{
+  display: flex;
+  flex-direction: column;
+}
+
+.bookingConfirm11_1 p{
+  margin-bottom: 0;
+}
+
+.p_detail_h{
+    font-size: 1.28rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid #c8c9ca;
+    margin-bottom: 1rem !important;
+}
+
+
+.pass_num{
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.pIn{
+  margin: 0.5rem 0;
+  padding: 0.48rem;
+  background-color: #e2e2e2;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+}
+
+.pass_gend{
+  margin-right: 0.2rem;
+}
+.label_gend{
+  margin-right: 0.7rem;
+}
+
+.bookingConfirm11_2{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #e2e2e2;
+  border-radius: 10px;
+}
+
+.text_h{
+  font-size: 1.2rem;
 }
 
 

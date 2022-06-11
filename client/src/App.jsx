@@ -9,6 +9,7 @@ import Alert from './Components/Alert'
 import Theme from './Components/Theme'
 import AOS from 'aos';
 import Booking from './Components/Booking'
+import BookingConfirm from './Components/Bookingconfirm'
 
 
 
@@ -48,6 +49,7 @@ const App = () => {
           <Route path='/signup' element={<SignUp showAlert={showAlert}/>} />
           <Route path='/tracking' element={<Tracking />} />
           <Route path='/booking' element={<Booking />} />
+          <Route path='/booking-confirm' element={<BookingConfirm />} />
         </Routes>
       </div>
 
