@@ -191,7 +191,7 @@ code {
   width: 25%;
 }
 
-.journeyIn input {
+.journeyIn select {
   border: none;
   outline: none;
   background-color: #e2e2e2;
@@ -561,7 +561,7 @@ code {
 /* SIGN UP BOX */
 
 .signUpSection {
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
 }
 
 .signUpBox {

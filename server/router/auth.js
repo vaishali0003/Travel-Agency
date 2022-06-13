@@ -41,6 +41,7 @@ router.post('/register', [
             password: password,
             cpassword: cpassword,
         })
+        
         await user.save();
         return res.status(200).json({ type: "success", message: "User signed in successfully" });
     }
