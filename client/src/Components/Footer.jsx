@@ -1,9 +1,10 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <>
-      <div className="footerSection">
+      <div className="footerSection" id="footerSection">
         <div className="col-md-9">
           <div className="footer">
             {/* <div className="col-md-3 d-flex flex-column align-content-center"> */}
@@ -64,7 +65,7 @@ const Footer = () => {
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Review</p>
+                  <NavLink to="/#reviewsSection"><p className="locName">Review</p></NavLink>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />

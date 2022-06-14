@@ -11,22 +11,13 @@ import Footer from './Footer'
 const MainHome = () => {
   return (
     <>
-        <Home />
+        <Home/>
         <Packages />
         <Services />
         <Testimonials />
         <Review />
         <Contact />
         <Footer />
-
-        {/* <Route path='/' element={<Home/>}/>
-        <Route path='/packages' element={<Packages/>}/>
-        <Route path='/services' element={<Services/>}/>
-        <Route path='/testimonials' element={<Testimonials/>}/>
-        <Route path='/review' element={<Review/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/footer' element={<Footer/>}/> */}
-
     </>
   )
 }

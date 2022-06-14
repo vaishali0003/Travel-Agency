@@ -3,7 +3,7 @@ import React from 'react'
 const Review = () => {
     return (
         <>
-            <div className="reviewsSection">
+            <div id="reviewsSection">
                 <h1 className="head">Clients's Review</h1>
                 <div className="col-md-9">
                     <div className="reviews">

@@ -4,7 +4,7 @@ import Package from './Package'
 const Packages = () => {
     return (
         <>
-            <div className="packagesSection">
+            <div className="packagesSection" id="packagesSection">
                 <h1 className="head">Our Packages</h1>
                 <div className="col-md-10">
                    <div className="packages row">

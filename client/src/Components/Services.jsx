@@ -2,9 +2,11 @@ import React from 'react'
 import Service from './Service'
 
 const Services = () => {
+
+
   return (
     <>
-    <div className="servicesSection">
+    <div className="servicesSection" id="servicesSection">
     <h1 className="head">Our Services</h1>
         <div className="col-md-11">
         <div className="services row">

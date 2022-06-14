@@ -16,7 +16,6 @@ const Bus = () => {
       policies_list.style.display = 'none';
       setflag(!flag);
     }
-
   }
 
 

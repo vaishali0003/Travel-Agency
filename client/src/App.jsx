@@ -11,8 +11,6 @@ import AOS from 'aos';
 import Booking from './Components/Booking'
 import BookingConfirm from './Components/Bookingconfirm'
 
-
-
 const App = () => {
 
   AOS.init();

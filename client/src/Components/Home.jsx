@@ -1,11 +1,12 @@
 import React from 'react'
 import Book from './Book'
+import { NavLink } from 'react-router-dom'
 
 const Home = () => {
 
     return (
         <>
-            <div className="homeSection">
+            <div className="homeSection" id="homeSection">
                 <div className="col-md-10 d-flex justify-content-center align-items-center" style={{ marginBottom: "2rem" }}>
                     <div className="homeSec1">
                         <div className="homeSecImg">

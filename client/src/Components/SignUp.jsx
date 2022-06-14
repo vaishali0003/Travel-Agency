@@ -29,7 +29,7 @@ const SignUp = (props) => {
 
     return (
         <>
-            <div className="signUpSection">
+            <div className="signUpSection" id="signUpSection">
                 <div className="signUp container-fluid col-md-8">
                     <div className="row">
                         <div className="col-md-3 signUpleft">

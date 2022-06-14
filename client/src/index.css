@@ -191,7 +191,7 @@ code {
   width: 25%;
 }
 
-.journeyIn select {
+.journeyIn select,.journeyIn input {
   border: none;
   outline: none;
   background-color: #e2e2e2;
@@ -377,7 +377,7 @@ code {
 
 /* REVIEWS SECTION CSS */
 
-.reviewsSection {
+#reviewsSection {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -521,13 +521,15 @@ code {
 /* NAVBAR 1 CSS */
 
 .nav-1 {
-  position: absolute;
+  position: fixed;
   width: 16rem;
   padding: 1rem 1.4rem;
   background-color: white;
   right: 20px;
   border-radius: 6px;
   display: none;
+  z-index: 1;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%), 0 4px 4px rgb(0 0 0 / 11%), 0 6px 8px rgb(0 0 0 / 11%), 0 8px 16px rgb(0 0 0 / 11%);
 }
 
 .nav-1 ul {
@@ -539,7 +541,6 @@ code {
   list-style: none;
   margin: 0.5rem 0;
   cursor: pointer;
-  color: grey;
   font-weight: 500;
   font-size: 1.4rem;
   padding: 0.6rem 0.5rem;
@@ -556,6 +557,8 @@ code {
 
 .nav-list a {
   text-decoration: none;
+  color: grey;
+
 }
 
 /* SIGN UP BOX */
