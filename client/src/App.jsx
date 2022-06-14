@@ -10,6 +10,7 @@ import Theme from './Components/Theme'
 import AOS from 'aos';
 import Booking from './Components/Booking'
 import BookingConfirm from './Components/Bookingconfirm'
+import BusState from './context/buses/BusState'
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
     <>
+    <BusState>
       <Theme/>
       <div className="main">
         <Alert alert={alert}/>
@@ -50,7 +52,7 @@ const App = () => {
           <Route path='/booking-confirm' element={<BookingConfirm />} />
         </Routes>
       </div>
-
+      </BusState>
     </>
   )
 }

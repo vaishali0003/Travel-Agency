@@ -35,9 +35,9 @@ router.post('/bookings', async (req, res) => {
 router.get('/fetchallbuses/:from/:to', async (req, res) => {
 
     try {
-        const bus = await Bus.findOne({ book_from: req.params.from, book_to: req.params.to })
-        if (bus) {
-            res.json(bus)
+        const buses = await Bus.find({ book_from: req.params.from, book_to: req.params.to })
+        if (buses) {
+            res.json(buses)
         }
         else {
             res.json('No buses found for the given locations')

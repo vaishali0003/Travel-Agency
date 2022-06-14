@@ -3,50 +3,28 @@ import Book from './Book'
 import Bus from './Bus'
 import Seats from './Seats'
 import { useSearchParams } from 'react-router-dom'
-import { useEffect,useState } from 'react'
-// import { useContext } from 'react'
-// import Context from '../context/context'
+import { useEffect, useState } from 'react'
+import { useContext } from 'react'
+import BusContext from '../context/buses/busContext'
 
 const Booking = () => {
 
-  // const context = useContext(Context);
-  //  const {fetchallbuses}=context;
+  const context = useContext(BusContext);
+  const { fetchallbuses, buses } = context;
 
-  const [journey, setjourney] = useState({book_from:"Jaipur",book_to:"Ajmer"})
+  const [journey, setjourney] = useState({ book_from: "Jaipur", book_to: "Ajmer" })
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  const from=searchParams.get("from")
-  const to=searchParams.get("to")
-  const date=searchParams.get("date")
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const from = searchParams.get("from")
+  // const to = searchParams.get("to")
+  // const date = searchParams.get("date")
 
-  // const host = "http://localhost:4300";
+  const { book_from, book_to } = journey;
 
-    const fetchallbuses = async () => {
-      // setjourney({book_from:from,book_to:to})
-     const {book_from,book_to}=journey;
+  useEffect(() => {
+    fetchallbuses(book_from, book_to);
+  }, [])
 
-        try {
-            const response = await fetch(`http://localhost:4300/bus/bookings/${book_from}/${book_to}`, {
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-            })
-            const json = await response.json()
-            console.log(json)
-        }
-        catch(err) {
-          console.log(err)
-            window.alert('Some internal error occured')
-        }
-    }
-
-    useEffect(() => {
-      fetchallbuses();
-    }, [])
-    
-
-  // context.fetchallbuses();
 
   return (
     <>
@@ -56,10 +34,13 @@ const Booking = () => {
           <h1 className="h1_head">2 buses found</h1>
           <div className="buses col-md-10 col-11">
 
-           <Bus/>
+            {(buses.length !== 0) ? buses.map((bus, index) => {
+              return <Bus key={index} bus={bus}/>
+            }) : 'No buses found'}
+
           </div>
-          
-          <Seats/>
+
+          <Seats />
         </div>
       </div>
     </>
