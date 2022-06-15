@@ -861,7 +861,6 @@ font-size: 16px;
 }
 
 .select_seats:hover {
-  color: black;
   background-color: #881888;
 }
 
@@ -920,6 +919,7 @@ font-size: 16px;
   justify-content: center;
   border-radius: 10px;
   width: 100%;
+  display: none;
 }
 
 .seats_info {

@@ -6,10 +6,8 @@ const Book = () => {
 
     const [user, setuser] = useState({ from: "", to: "", date: "" })
 
-
     const onChange = (e) => {
         setuser({ ...user, [e.target.name]: e.target.value })
-        console.log(user)
     }
 
     return (

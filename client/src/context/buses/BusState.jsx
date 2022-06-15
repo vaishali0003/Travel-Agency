@@ -17,7 +17,8 @@ const BusState = (props) => {
                 }
             })
             const json = await response.json()
-            setbuses(json)
+            setbuses(json);
+            console.log(buses);
         }
         catch {
             window.alert('Some internal error occured')

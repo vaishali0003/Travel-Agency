@@ -1,22 +1,48 @@
 import React from 'react'
 import { NavLink } from "react-router-dom"
 
-const Seats = () => {
+const Seats = (props) => {
+
+const seats11=document.querySelector('.seats11')
+
+const {bus_seats}=props.bus;
+
+let seatsArr=[];
+let str='';
+
+for(let i=0;i<bus_seats;i++){
+str+=`<div className="seat"></div>`;
+seatsArr.push(str);
+}
+
+// make a new parser
+const parser = new DOMParser();
+
+// convert html string into DOM
+
+
   return (
     <>
-      <div className="seats">
+      <div className="seats" id={`id${props.id}`}>
         <div className="seats_info col-md-10 col-12">
           <div className="seats1">
             <div className="seats11">
+
+
+
+{seatsArr.map((val,index)=>{
+const document = parser.parseFromString(val, "text/html");
+return document;
+})}
+
+              {/* <div className="seat"></div>
               <div className="seat"></div>
               <div className="seat"></div>
               <div className="seat"></div>
               <div className="seat"></div>
               <div className="seat"></div>
               <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
+              <div className="seat"></div> */}
             </div>
             <div className="redBox">
               <div className="seat"></div>
