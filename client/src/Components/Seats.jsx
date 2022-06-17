@@ -1,48 +1,62 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { NavLink } from "react-router-dom"
+import OutsideClickHandler from 'react-outside-click-handler';
+
 
 const Seats = (props) => {
+  const { bus_seats } = props.bus;
+  const id = props.id;
 
-const seats11=document.querySelector('.seats11')
+  useEffect(() => {
+    for (let i = 0; i < bus_seats; i++) {
+      var seats11 = document.getElementById(`seats${props.id}`);
+      var seat = document.createElement('div');
+      seat.classList.add('seat');
+      if (seats11 !== null) {
+        seats11.appendChild(seat)
+      }
+    }
+  }, [bus_seats])
 
-const {bus_seats}=props.bus;
 
-let seatsArr=[];
-let str='';
+  // window.addEventListener('mouseup', (e) => {
+  //   if (!document.querySelector('.seats').contains(e.target)) {
+  //     document.querySelector('.seats').style.display = 'none';
+  //   }
+  // })
 
-for(let i=0;i<bus_seats;i++){
-str+=`<div className="seat"></div>`;
-seatsArr.push(str);
+
+function MyComponent() {
+  return (
+    <OutsideClickHandler
+      onOutsideClick={() => {
+        alert('You clicked outside of this component!!!');
+      }}
+    >
+      Hello World
+    </OutsideClickHandler>
+  );
 }
-
-// make a new parser
-const parser = new DOMParser();
-
-// convert html string into DOM
 
 
   return (
     <>
+    <OutsideClickHandler
+      onOutsideClick={(e) => {
+        const seats= document.querySelectorAll('.seats')
+        for(let i of seats){
+          if (!i.contains(e.target)) {
+            i.style.display = 'none';
+          }
+        }
+      }}
+    >
       <div className="seats" id={`id${props.id}`}>
         <div className="seats_info col-md-10 col-12">
           <div className="seats1">
-            <div className="seats11">
+            <div className="seats11" id={`seats${props.id}`}>
 
-
-
-{seatsArr.map((val,index)=>{
-const document = parser.parseFromString(val, "text/html");
-return document;
-})}
-
-              {/* <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div>
-              <div className="seat"></div> */}
             </div>
             <div className="redBox">
               <div className="seat"></div>
@@ -65,6 +79,8 @@ return document;
           </div>
         </div>
       </div>
+    </OutsideClickHandler>
+
     </>
   )
 }

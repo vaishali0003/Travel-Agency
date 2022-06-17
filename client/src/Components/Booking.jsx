@@ -40,7 +40,7 @@ const Booking = () => {
           <div className="buses col-md-10 col-11">
             {(buses.length !== 0) ? buses.map((bus, index) => {
               return <><Bus key={index} bus={bus} onClickBus={() => { onClickBus(index) }} />
-                <Seats bus={bus} id={index} />
+                <Seats bus={bus} id={index} key={index+1}/>
               </>
             }) : <h1 className="h1_head">No buses found</h1>
             }
