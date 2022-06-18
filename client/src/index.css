@@ -942,12 +942,23 @@ font-size: 16px;
   flex-wrap: wrap;
 }
 
-.seat {
+.vacant_seat {
+  height: 1.4rem;
+  width: 2.6rem;
+  margin: 0.3rem;
+  border: 1px solid;
+  /* background-color: #fa4242eb; */
+}
+
+.booked_seat{
   height: 1.4rem;
   width: 2.6rem;
   margin: 0.3rem;
   border: 1px solid;
   background-color: #fa4242eb;
+}
+.book_this_seat{
+  background-color: plum;
 }
 
 

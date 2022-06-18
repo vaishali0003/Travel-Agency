@@ -115,7 +115,7 @@ let endTimezone=(end_time >'12:00')?'pm':'am'
         <div className="busBox2 col-md-2">
           <p className="bus_info2_i" style={{ color: 'grey' }}>Starting From</p>
           <h2 className="bus_box2_price" style={{ fontWeight: "bold" }}>
-            $199
+           {bus.bus_price}
           </h2>
           <button className="select_seats" onClick={props.onClickBus}>SELECT SEATS</button>
         </div>

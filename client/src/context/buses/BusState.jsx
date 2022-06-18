@@ -9,7 +9,8 @@ const BusState = (props) => {
 
     // to fetch all the buses for a given journey
     const fetchallbuses = async (from, to) => {
-        try {
+        // try {
+            console.log(from,to);
             const response = await fetch(`${host}/bus/fetchallbuses/${from}/${to}`, {
                 method: "GET",
                 headers: {
@@ -17,12 +18,13 @@ const BusState = (props) => {
                 }
             })
             const json = await response.json()
+            console.log(json);
             setbuses(json);
-            console.log(buses);
-        }
-        catch {
-            window.alert('Some internal error occured')
-        }
+        // }
+        // catch(error) {
+        //     console.log(error);
+        //     window.alert('Some internal error occured')
+        // }
     }
 
     return (

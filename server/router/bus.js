@@ -44,8 +44,8 @@ router.get('/fetchallbuses/:from/:to', async (req, res) => {
         }
     }
     catch (err) {
-        res.json({ error: err });
         console.log(err);
+        res.json({ error: err.message });
     }
 
 })

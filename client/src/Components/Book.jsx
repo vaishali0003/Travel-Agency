@@ -18,7 +18,8 @@ const Book = () => {
 
                     <div className="journeyIn">
                         <label htmlFor="from">Where From?</label>
-                        <select name="from" value={user.from} onChange={onChange} required>
+                        <select name="from" onChange={onChange} required>
+                            <option value="">Select City</option>
                             <option value="Delhi">Delhi</option>
                             <option value="Jaipur">Jaipur</option>
                             <option value="Ajmer">Ajmer</option>
@@ -31,9 +32,10 @@ const Book = () => {
 
                     <div className="journeyIn">
                         <label htmlFor="to">Where To?</label>
-                        <select name="to" value={user.to} onChange={onChange} required>
-                            <option value="Delhi">Jaipur</option>
-                            <option value="Jaipur">Delhi</option>
+                        <select name="to" onChange={onChange} required>
+                            <option value="">Select City</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Delhi">Delhi</option>
                             <option value="Ajmer">Ajmer</option>
                             <option value="Mumbai">Mumbai</option>
                             <option value="Nagpur">Nagpur</option>
@@ -48,6 +50,9 @@ const Book = () => {
 
                     <div className="journeyIn">
                         <NavLink className="btn1 bookBtn" to={`/booking?from=${user.from}&to=${user.to}&date=${user.date}`}>Book Now</NavLink>
+                        {/* <button onClick={()=>{
+                            console.log(user);
+                        }}>click</button> */}
                     </div>
                 </form>
 

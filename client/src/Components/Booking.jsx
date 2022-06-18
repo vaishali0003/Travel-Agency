@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Book from './Book'
 import Bus from './Bus'
 import Seats from './Seats'
@@ -39,9 +39,9 @@ const Booking = () => {
         <div className="busesInfo">
           <div className="buses col-md-10 col-11">
             {(buses.length !== 0) ? buses.map((bus, index) => {
-              return <><Bus key={index} bus={bus} onClickBus={() => { onClickBus(index) }} />
-                <Seats bus={bus} id={index} key={index+1}/>
-              </>
+              return <React.Fragment key={index}><Bus bus={bus} onClickBus={() => { onClickBus(index) }} />
+                <Seats bus={bus} id={index} />
+              </React.Fragment>
             }) : <h1 className="h1_head">No buses found</h1>
             }
           </div>
