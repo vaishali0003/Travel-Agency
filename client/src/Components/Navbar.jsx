@@ -60,7 +60,6 @@ const Navbar = (props) => {
         }
     }
 
-
     return (
         <>
             <nav className="navBar d-flex justify-content-center">

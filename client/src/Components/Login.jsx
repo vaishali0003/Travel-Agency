@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import { NavLink } from 'react-router-dom'
+import OutsideClickHandler from 'react-outside-click-handler';
+
 
 const Login = (props) => {
 
@@ -29,6 +31,14 @@ const Login = (props) => {
 
     return (
         <>
+        <OutsideClickHandler
+        onOutsideClick={(e) => {
+          const loginBox = document.querySelector('.loginBox');
+            if (!loginBox.contains(e.target)) {
+                loginBox.style.display = 'none';
+            }
+        }}
+      >
             <div className="loginBox">
                 <form action="" method='POST' onSubmit={onSubmit}>
                     <div className="mb-3">
@@ -47,6 +57,7 @@ const Login = (props) => {
                     </div>
                 </form>
             </div>
+            </OutsideClickHandler>
         </>
     )
 }

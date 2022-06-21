@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 
 const Bus = (props) => {
-  
-const {bus}=props
+
+  const { bus } = props
 
   const [flag, setflag] = useState(true)
 
@@ -20,24 +20,35 @@ const {bus}=props
     }
   }
 
-let start_time=bus.bus_time;
-let end_time=bus.bus_drops;
+ 
+  let start_time = bus.bus_time;
+  let end_time = bus.bus_drops;
 
-// const getTimeZone(time)=>{
-// const timeInfo=time.sptli
-// }
+  const getTimeZone = (start_time, end_time) => {
+    // console.log(start_time,end_time);
+  var t1_arr = start_time.split(':');
+  var t2_arr = end_time.split(":");
 
+  var t_d = parseInt(t2_arr[0]) - parseInt(t1_arr[0])
 
-const getTimeZone=(time)=>{
-const timeInfo=time.split(':')
-console.log(timeInfo)
-}
+  if (t_d < 0) {
+    t2_arr[0]=parseInt(t2_arr[0])+24;
+  }
 
-let time='8:00'
-getTimeZone(time);
+  var t1 = parseInt(t1_arr[0] * 60) + parseInt(t1_arr[1])
+  var t2 = parseInt(t2_arr[0] * 60) + parseInt(t2_arr[1])
 
-let startTimezone=(start_time >'12:00')?'pm':'am'
-let endTimezone=(end_time >'12:00')?'pm':'am'
+  var tt = t2 - t1
+  var tth = Math.floor(tt / 60);
+  var ttm = Math.floor(tt % 60);
+
+    return [tth,ttm];
+  }
+
+  let ttt = getTimeZone(start_time, end_time);
+
+  var tt_h=ttt[0];
+  var tt_m=ttt[1];
 
   return (
     <>
@@ -51,9 +62,9 @@ let endTimezone=(end_time >'12:00')?'pm':'am'
           </ul>
           <hr />
           <ul className="bus_info2">
-            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_time+startTimezone}, </span><span style={{ color: "grey" }}>{bus.bus_recieve_date}</span></li>
-            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>3</span><sub style={{ color: "grey" }}>hrs</sub>0<sub style={{ color: "grey" }}>min</sub></li>
-            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_drops+endTimezone},</span><span style={{ color: "grey" }}>{bus.bus_drop_date}</span></li>
+            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_time}, </span><span style={{ color: "grey" }}>{bus.bus_recieve_date}</span></li>
+            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{tt_h}</span><sub style={{ color: "grey" }}>hrs</sub><span style={{ fontWeight: "bold" }}>{tt_m}</span><sub style={{ color: "grey" }}>min</sub></li>
+            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_drops},</span><span style={{ color: "grey" }}>{bus.bus_drop_date}</span></li>
           </ul>
           <hr />
           <div className="policies">
@@ -62,7 +73,7 @@ let endTimezone=(end_time >'12:00')?'pm':'am'
             <ul className="policies_list">
 
               <li className="policy">
-                <p className="policy_head"> CANCELLATION</p>
+                <p className="policy_head">CANCELLATION</p>
                 <ul className="policy_list">
                   <li className="policy_list_item">Lorem ipsum dolor sit amet consectetur.</li>
                   <li className="policy_list_item">Lorem ipsum dolor sit amet consectetur.</li>
@@ -115,7 +126,7 @@ let endTimezone=(end_time >'12:00')?'pm':'am'
         <div className="busBox2 col-md-2">
           <p className="bus_info2_i" style={{ color: 'grey' }}>Starting From</p>
           <h2 className="bus_box2_price" style={{ fontWeight: "bold" }}>
-           {bus.bus_price}
+            {bus.bus_price}
           </h2>
           <button className="select_seats" onClick={props.onClickBus}>SELECT SEATS</button>
         </div>

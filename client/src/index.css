@@ -498,7 +498,7 @@ code {
 /* LOGIN BOX CSS */
 
 .loginBox {
-  position: absolute;
+  position: fixed;
   width: 27rem;
   padding: 1.5rem 1.5rem;
   background-color: white;
@@ -506,6 +506,7 @@ code {
   right: 20px;
   box-shadow: 0 0 20px rgb(33 33 33 / 30%);
   display: none;
+  z-index: 1;
 }
 
 .loginBtn1 {
@@ -846,6 +847,12 @@ font-size: 16px;
   font-size: 1.1rem;
 }
 
+.n_seat{
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
 .select_seats {
   margin-top: 9.3rem;
   background-color: orange;
@@ -860,9 +867,6 @@ font-size: 16px;
   bottom: 2.6rem;
 }
 
-.select_seats:hover {
-  background-color: #881888;
-}
 
 .sub {
   bottom: -0.1em;
@@ -957,7 +961,12 @@ font-size: 16px;
   border: 1px solid;
   background-color: #fa4242eb;
 }
-.book_this_seat{
+
+.selected_seat{
+  height: 1.4rem;
+  width: 2.6rem;
+  margin: 0.3rem;
+  border: 1px solid;
   background-color: plum;
 }
 

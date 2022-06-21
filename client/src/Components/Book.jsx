@@ -28,8 +28,6 @@ const Book = () => {
                         </select>
                     </div>
 
-
-
                     <div className="journeyIn">
                         <label htmlFor="to">Where To?</label>
                         <select name="to" onChange={onChange} required>
@@ -50,9 +48,6 @@ const Book = () => {
 
                     <div className="journeyIn">
                         <NavLink className="btn1 bookBtn" to={`/booking?from=${user.from}&to=${user.to}&date=${user.date}`}>Book Now</NavLink>
-                        {/* <button onClick={()=>{
-                            console.log(user);
-                        }}>click</button> */}
                     </div>
                 </form>
 

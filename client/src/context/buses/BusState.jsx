@@ -10,15 +10,14 @@ const BusState = (props) => {
     // to fetch all the buses for a given journey
     const fetchallbuses = async (from, to) => {
         // try {
-            console.log(from,to);
             const response = await fetch(`${host}/bus/fetchallbuses/${from}/${to}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json',
                 }
             })
+            
             const json = await response.json()
-            console.log(json);
             setbuses(json);
         // }
         // catch(error) {
