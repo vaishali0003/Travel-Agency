@@ -32,7 +32,6 @@ const userSchema = mongoose.Schema({
     },
     cpassword: {
         type: String,
-        required: true
     },
     timestamp: {
         type: Date,

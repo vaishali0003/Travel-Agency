@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { useEffect, useState } from 'react';
 import { NavLink } from "react-router-dom"
 import OutsideClickHandler from 'react-outside-click-handler';
@@ -7,13 +7,13 @@ import OutsideClickHandler from 'react-outside-click-handler';
 const Seats = (props) => {
   const { bus_seats, booked_seats } = props.bus;
 
-
   useEffect(() => {
-    let b_s = booked_seats.split(',')
+    console.log('yes');
+    var b_s = booked_seats.split(',')
     var seats11 = document.getElementById(`seats${props.id}`)
     if (seats11) {
       for (let i = 1; i <= bus_seats; i++) {
-        let nc = document.createElement('div');
+        var nc = document.createElement('div');
         nc.setAttribute('id', `seat${i}`);
 
         if (b_s.includes(i.toString())) {
@@ -26,6 +26,7 @@ const Seats = (props) => {
       }
     }
   }, []);
+
 
 
   return (
@@ -62,9 +63,12 @@ const Seats = (props) => {
 
                 <h3 style={{ fontWeight: "bold" }}>$ 0</h3>
               </div>
-
               <div className="book_seats">
-                <NavLink className='book_seat' to={`/booking-confirm?seat_no=}`}>Book Seats</NavLink>
+
+                {/* <NavLink className='book_seat' to={`/booking-confirm`}>Book Seats</NavLink> */}
+
+                {/* <NavLink className='book_seat' onClick={props.onClickBook} to={`/booking-confirm`}>Book Seats</NavLink> */}
+                <button className='book_seat' onClick={props.onClickBook}>Book Seats</button>
               </div>
             </div>
           </div>

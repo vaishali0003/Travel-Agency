@@ -23,7 +23,7 @@ const Navbar1 = () => {
                     <li className="nav-list-item"><NavHashLink to="/#servicesSection">Services</NavHashLink></li>
                     <li className="nav-list-item"><NavHashLink to="/#testimonialsSection">Testimonials</NavHashLink></li>
                     <li className="nav-list-item"><NavHashLink to="/#reviewsSection">Review</NavHashLink></li>
-                    <li className="nav-list-item"><NavHashLink to="/#contact">Contact</NavHashLink></li>
+                    <li className="nav-list-item"><NavHashLink to="/#contactSection">Contact</NavHashLink></li>
                 </ul>
             </div>
             </OutsideClickHandler>

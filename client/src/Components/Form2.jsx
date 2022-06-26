@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import {useNavigate,useSearchParams } from 'react-router-dom';
+
 
 const Form2 = (props) => {
+
+    const navigate=useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const book_conf = searchParams.get("booking_conf");
 
     const [credentials, setcredentials] = useState({email:"",password:""})
 
     const onChange=(e)=>{
-        console.log('onchange is clicked')
         setcredentials({...credentials,[e.target.name]:e.target.value})
     }
 
@@ -21,8 +26,19 @@ const Form2 = (props) => {
             },
             body:JSON.stringify({email,password})
         })
-      const json=await response.json();
-      props.showAlert(json.message,json.type)
+        const json = await response.json();
+        if (json.success) {
+            props.showAlert('User logged in successfully', 'success');
+            localStorage.setItem('token', json.authToken);
+            console.log(book_conf);
+            if(book_conf==='true'){
+                navigate('/booking-confirm')
+            }
+            else{
+                navigate('/');
+            }
+        }
+        props.showAlert('User logged in successfully', 'success')
     }
 
 

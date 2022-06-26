@@ -3,6 +3,10 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const User = require('../models/userSchema')
 const bcrypt = require('bcrypt');
+JWT_SECRET = 'vaishaliisgoingtobeagooddeveloperinfuture';
+var jwt = require('jsonwebtoken');
+const fetchuser = require('../middleware/fetchuser');
+
 
 router.post('/register', [
     body('firstname', 'Enter a valid name').isLength({ min: 3 }),
@@ -16,7 +20,14 @@ router.post('/register', [
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        let tempArr = [];
+        // console.log(errors.array());
+        for (let i of errors.array()) {
+            console.log("yes");
+            tempArr.push(i.msg + ", ");
+        }
+        console.log(tempArr.toString().slice(0, -2));
+        return res.status(400).json({ message: tempArr.toString().slice(0, -2), type: "danger" });
     }
 
     try {
@@ -39,9 +50,9 @@ router.post('/register', [
             phone: phone,
             age: age,
             password: password,
-            cpassword: cpassword,
+            // cpassword: cpassword,
         })
-        
+
         await user.save();
         return res.status(200).json({ type: "success", message: "User signed in successfully" });
     }
@@ -58,12 +69,19 @@ router.post('/login', [
     body('password', 'Password must not be blank').exists(),
 ], async (req, res) => {
 
-    const { email, password } = req.body;
-
+let success=false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+        let tempArr = [];
+        // console.log(errors.array());
+        for (let i of errors.array()) {
+            console.log("yes");
+            tempArr.push(i.msg + ", ");
+        }
+        console.log(tempArr.toString().slice(0, -2));
+        return res.status(400).json({ message: tempArr.toString().slice(0, -2), type: "danger" });
     }
+    const { email, password } = req.body;
 
     try {
         let user = await User.findOne({ email: email })
@@ -73,16 +91,41 @@ router.post('/login', [
 
         const passwordCompare = await bcrypt.compare(password, user.password);
         if (!passwordCompare) {
-            console.log('if');
             return res.status(401).json({ type: "danger", message: "Please Login using correct credentials" });
         }
-        console.log('else');
-        return res.status(200).json({ type: "success", message: "User logged in successfully" });
+        // return res.status(200).json({ type: "success", message: "User logged in successfully" });
+
+        const data = {
+            user: {
+                id: user.id
+            }
+        }
+
+        success=true;
+
+        const authToken = jwt.sign(data, JWT_SECRET);
+        res.json({success,authToken });
+
     }
     catch (err) {
         console.log(err)
         return res.status(501).json({ type: "danger", message: "Some internal error occured" })
     }
+})
+
+
+// get loggedin user details
+
+router.get('/getuser', fetchuser, async(req, res) => {
+    try {
+        userId = req.user.id;
+        const user = await User.findById(userId).select("-password");
+        res.json(user)
+
+    }  catch (error) {
+        console.log(error);
+        res.status(501).json({ message: 'Internal server error' })
+      }
 })
 
 

@@ -10,7 +10,7 @@ const Alert = (props) => {
 
   return (
     <>
-      <div style={{ height: "45px" }}>
+      <div style={{ height: "45px",position:"fixed" }}>
         {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
           <strong>{capitalize(props.alert.type)} ! </strong>{props.alert.message}
           <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

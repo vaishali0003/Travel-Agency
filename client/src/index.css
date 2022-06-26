@@ -34,7 +34,6 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* justify-content: space-around; */
 }
 
 .logo {
@@ -1064,6 +1063,7 @@ font-size: 16px;
   outline: none;
   border-radius: 5px;
   border: none;
+  width: 100%;
 }
 
 .pass_gend{

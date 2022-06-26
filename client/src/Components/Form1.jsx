@@ -11,7 +11,6 @@ const Form1 = (props) => {
     const onSubmit = async (e) => {
         e.preventDefault();
         const { firstname, lastname, email, gender, phone, age, password, cpassword } = user;
-        console.log(gender)
 
         const response = await fetch('http://localhost:4300/auth/register', {
             method: "POST",

@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import SignUp from './Components/SignUp'
 import { Route, Routes } from 'react-router-dom'
 import MainHome from './Components/MainHome'
@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     AOS.init({
-      duration : 500
+      duration: 500
     });
   }, []);
 
@@ -36,22 +36,27 @@ const App = () => {
     }, 1500);
   }
 
+  const [tempArr, setTempArr] = useState([]);
+  const [amount, setamount] = useState([]);
+  const [bus, setbus] = useState([]);
+
+  
   return (
     <>
-    <BusState>
-      <Theme/>
-      <div className="main">
-        <Alert alert={alert}/>
-        <Navbar1 />
-        <Login showAlert={showAlert}/>
-        <Routes>
-          <Route path='/' element={<MainHome showAlert={showAlert}/>} />
-          <Route path='/signup' element={<SignUp showAlert={showAlert}/>} />
-          <Route path='/tracking' element={<Tracking />} />
-          <Route path='/booking' element={<Booking />} />
-          <Route path='/booking-confirm' element={<BookingConfirm />} />
-        </Routes>
-      </div>
+      <BusState>
+        <Theme />
+        <div className="main">
+          <Alert alert={alert} />
+          <Navbar1 />
+          <Login showAlert={showAlert} />
+          <Routes>
+            <Route path='/' element={<MainHome showAlert={showAlert} />} />
+            <Route path='/signup' element={<SignUp showAlert={showAlert} />} />
+            <Route path='/tracking' element={<Tracking />} />
+            <Route path='/booking' element={<Booking tempArr={tempArr} setTempArr={setTempArr} amount={amount} setamount={setamount} bus={bus} setbus={setbus}/>} />
+            <Route path='/booking-confirm' element={<BookingConfirm tempArr={tempArr} amount={amount} bus={bus}/>} />
+          </Routes>
+        </div>
       </BusState>
     </>
   )
