@@ -7,14 +7,14 @@ import { useContext, useEffect } from 'react'
 import BusContext from '../context/buses/busContext'
 import { useState } from 'react'
 
-// var tempArr = [];
+var tempArr = [];
+
 var amount = 0;
 
 const Booking = (props) => {
 
   const navigate = useNavigate();
-
-  var tempArr = useMemo(() => [], []);
+  const [flag, setflag] = useState(false)
 
   const context = useContext(BusContext);
   const { fetchallbuses, buses } = context;
@@ -30,7 +30,6 @@ const Booking = (props) => {
     fetchallbuses(from, to);
   }, [from, to]);
 
-
   // MY CODE
 
   useEffect(() => {
@@ -41,6 +40,7 @@ const Booking = (props) => {
       props.setbus(bus1);
       var bus_p = context.buses[busNo].bus_price
     }
+
     if (seats11) {
       for (let i of seats11.children) {
         if (i.classList.contains('vacant_seat')) {
@@ -81,8 +81,6 @@ const Booking = (props) => {
     }
   }, [tempStr])
 
-
-
   const onClickBus = (id) => {
     tempArr = [];
     props.setTempArr(tempArr);
@@ -104,7 +102,6 @@ const Booking = (props) => {
       }
     }
 
-
     setBusNo(id);
     if (!tempStr.includes(id)) {
       setTempStr(tempStr.concat(id));
@@ -114,6 +111,7 @@ const Booking = (props) => {
 
     let seats = document.querySelectorAll('.seats');
     let id2 = 'id' + id;
+
     for (let i of seats) {
       let id1 = i.getAttribute('id');
       if (id1 === id2) {
@@ -121,7 +119,6 @@ const Booking = (props) => {
       }
     }
   }
-
 
   const onClickBook = (index) => {
     var arr = [];
@@ -139,12 +136,15 @@ const Booking = (props) => {
     }
   }
 
+  const onClick=()=>{
+    console.log(tempArr);
+  }
 
   return (
     <>
       <div className="book">
         <Book />
-        {/* <button onClick={onClick}>sdf</button> */}
+        <button onClick={onClick}>sdf</button>
         <div className="busesInfo">
           <div className="buses col-md-10 col-11">
             {(buses.length !== 0) ? buses.map((bus, index) => {

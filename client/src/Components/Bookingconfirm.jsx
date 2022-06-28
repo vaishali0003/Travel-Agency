@@ -2,6 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PassDiv from './PassDiv'
 
 const BookingConfirm = (props) => {
 
@@ -23,10 +24,8 @@ const BookingConfirm = (props) => {
 
   const [myObj, setmyObj] = useState(obj);
 
-
-  const onchange=()=>{
-    console.log('onchange is clicked');
-  }
+  const [s, sets] = useState([]);
+  const [value, setValue] = useState({});
 
   useEffect(() => {
     // Object.values gives the values of an object in the form of array;
@@ -46,29 +45,22 @@ const BookingConfirm = (props) => {
 
     var seats_n = JSON.parse(localStorage.getItem('pass_details')).seats_n;
     if (seats_n) {
-      var doc = document.getElementById('pass_sec');
-      var str = "";
-
-      for (let i of seats_n) {
-        str += `<div className="pass_sec1">
-                  <p className="pass_num">Passenger 1</p>
-                  <input type="text" class="pIn" placeholder='PASSENGER NAME' name="pass_name" onchange={onchange}/>
-                  <input type="text" class="pIn" placeholder='PASSENGER AGE' name="pass_age"/>
-                  <div className="pass-gender" style={{ marginTop: "0.6rem" }}>
-                    <input type="radio" name="pass_gend" class='pass_gend' />
-                    <label htmlFor="female" class='label_gend'>Female</label>
-                    <input type="radio" name="pass_gend" class='pass_gend' />
-                    <label htmlFor="male" class='label_gend'>Male</label>
-                    <input type="radio" name="pass_gend" class='pass_gend' />
-                    <label htmlFor="other" class='label_gend'>Others</label>
-                  </div>
-                  </div>`
-      }
-      doc.innerHTML = str;
+      sets(seats_n);
     }
 
   }, []);
 
+
+  const setValue1 = (index, data) => {
+    setValue({ ...value, [index]: data });
+    let tempObj2={...value, [index]: data}
+    localStorage.setItem('pass_info',JSON.stringify(tempObj2))
+  };
+
+ 
+  // useEffect(() => {
+    // var item =JSON.parse(localStorage.getItem('pass_info'));
+    // }, [])
 
   return (
     <>
@@ -79,15 +71,19 @@ const BookingConfirm = (props) => {
           <div className="bookingConfirm11">
             <div className="bookingConfirm11_1">
               <p className="p_detail_h">Passenger Details</p>
-
+              <button onClick={() => {
+                console.log(value);
+              }}>click</button>
               <div className="pass_sec" id="pass_sec">
-
+                {s.map((val, index) => {
+                  return <PassDiv key={index} index={index} setValue1={setValue1}/>
+                })}
               </div>
             </div>
 
             <div className="bookingConfirm11_2">
               <p className="p_detail_h">Sub Total</p>
-              <h2 className="bux_box2_price" style={{ fontWeight: "600" }}>{myObj.bus_price}</h2>
+              <h2 className="bux_box2_price" style={{ fontWeight: "600" }}>{myObj.t_amount}</h2>
               <p className="text_h">{myObj.bus_price}x{myObj.no_buses}</p>
               <p className="p_detail_h">Seats</p>
               <p className="bus_info1_item">{myObj.seats_n}</p>
@@ -100,7 +96,7 @@ const BookingConfirm = (props) => {
             </div>
           </div>
           <div className="book_conf_btn book_seats">
-            {!localStorage.getItem('token') ? <NavLink className="conf_proceed book_seat" to='/signup?booking_conf=true'>Confirm and Submit</NavLink> : <NavLink className="conf_proceed book_seat" to=''>Confirm and Submit</NavLink>}
+            {!localStorage.getItem('token') ? <NavLink className="conf_proceed book_seat" to='/signup?booking_conf=true'>Confirm and Submit</NavLink> : <button className="conf_proceed book_seat">Confirm and Submit</button>}
           </div>
         </div>
       </div>
