@@ -28,26 +28,17 @@ const PassDiv = (props) => {
         props.setValue1(props.index, tempObj);
     }
 
-
-    // useEffect(() => {
-    //     const data = JSON.parse(localStorage.getItem("pass_info"));
-    //     if (pass_info.pass_name === "" && pass_info.pass_age === ""){
-    //         setpass_info({ ...pass_info, ...data })
-    //     }
-    // }, [])
-
-    // useEffect(() => {
-    //     localStorage.setItem("pass_info", JSON.stringify(pass_info));
-    // }, [pass_info.pass_name, pass_info.pass_age])
-
-    // do it in the bboking-conf
-
+    
     if(localStorage.getItem('token')){
         var item = JSON.parse(localStorage.getItem('pass_info'))[props.index];
         if(item){
             var item_name=item.pass_name; 
             var item_age=item.pass_age; 
             var item_gend=item.pass_gend; 
+            var t= document.getElementById(item_gend+props.index);
+            if(t){
+                t.checked=true;
+            }
         }
     }
   
@@ -58,11 +49,11 @@ const PassDiv = (props) => {
                 <input type="text" className="pIn" placeholder='PASSENGER NAME' name="pass_name" onChange={onChange} value={(item)?item_name:pass_info.pass_name} />
                 <input type="text" className="pIn" placeholder='PASSENGER AGE' name="pass_age" onChange={onChange} value={(item)?item_age:pass_info.pass_age} />
                 <div className="pass-gender" style={{ marginTop: "0.6rem" }} onChange={onChange} value={(item)?item_gend:pass_info.pass_gend}>
-                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' value="Female" />
+                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' id={`Female${props.index}`} value="Female" />
                     <label htmlFor="female" className='label_gend'>Female</label>
-                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' value="Male"/>
+                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' id={`Male${props.index}`} value="Male"/>
                     <label htmlFor="male" className='label_gend'>Male</label>
-                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' value="Others"/>
+                    <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' id={`Others${props.index}`} value="Others"/>
                     <label htmlFor="other" className='label_gend'>Others</label>
                 </div>
             </div>

@@ -58,10 +58,10 @@ const Seats = (props) => {
                   <div className="n_seats_selected" id={`n_seats_selected${props.id}`}>
 
                   </div>
-                  <p className="warn" style={{ color: "red", marginBottom: "4px" }}>Can only select maximum of 4 seats at a time</p>
+                  <p className="warn" id={`warn${props.id}`} style={{ color: "red", marginBottom: "4px" }}>Can only select maximum of 4 seats at a time</p>
                 </div>
 
-                <h3 style={{ fontWeight: "bold" }}>$ 0</h3>
+                {/* <h3 style={{ fontWeight: "bold" }}>$ 0</h3> */}
               </div>
               <div className="book_seats">
 

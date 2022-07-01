@@ -20,6 +20,7 @@ const Bus = (props) => {
     }
   }
 
+ 
 
   let start_time = bus.bus_time;
   let end_time = bus.bus_drops;

@@ -47,7 +47,7 @@ const App = () => {
         <Theme />
         <div className="main">
           <Alert alert={alert} />
-          <Navbar1 />
+          <Navbar1 showAlert={showAlert}/>
           <Login showAlert={showAlert} />
           <Routes>
             <Route path='/' element={<MainHome showAlert={showAlert} />} />

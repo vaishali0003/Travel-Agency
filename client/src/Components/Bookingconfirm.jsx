@@ -57,10 +57,6 @@ const BookingConfirm = (props) => {
     localStorage.setItem('pass_info',JSON.stringify(tempObj2))
   };
 
- 
-  // useEffect(() => {
-    // var item =JSON.parse(localStorage.getItem('pass_info'));
-    // }, [])
 
   return (
     <>
@@ -71,9 +67,6 @@ const BookingConfirm = (props) => {
           <div className="bookingConfirm11">
             <div className="bookingConfirm11_1">
               <p className="p_detail_h">Passenger Details</p>
-              <button onClick={() => {
-                console.log(value);
-              }}>click</button>
               <div className="pass_sec" id="pass_sec">
                 {s.map((val, index) => {
                   return <PassDiv key={index} index={index} setValue1={setValue1}/>

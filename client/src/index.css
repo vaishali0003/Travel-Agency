@@ -969,6 +969,9 @@ font-size: 16px;
   background-color: plum;
 }
 
+.warn{
+  display: none;
+}
 
 .redBox {
   display: flex;

@@ -26,6 +26,7 @@ const Booking = (props) => {
   const [busNo, setBusNo] = useState(null);
   const [tempStr, setTempStr] = useState([]);
 
+
   useEffect(() => {
     fetchallbuses(from, to);
   }, [from, to]);
@@ -59,20 +60,28 @@ const Booking = (props) => {
               console.log(tempArr);
               props.setTempArr(tempArr);
               amount -= bus_p;
+              document.getElementById(`warn${busNo}`).style.display='none';
             }
             else {
-              e.target.className = 'selected_seat';
-              if (n_seats_selected) {
-                var n_seat = document.createElement('span');
-                n_seat.setAttribute('id', `n_seat${seat_no}`);
-                n_seat.className = 'n_seat';
-                n_seat.innerText = `UD-${seat_no}`;
-                n_seats_selected.appendChild(n_seat);
-                tempArr.push(seat_param);
-                props.setTempArr(tempArr);
-                console.log(tempArr);
-                amount += bus_p;
-                props.setamount(amount);
+              if (tempArr.length <= 3) {
+                e.target.className = 'selected_seat';
+                if (n_seats_selected) {
+                  var n_seat = document.createElement('span');
+                  n_seat.setAttribute('id', `n_seat${seat_no}`);
+                  n_seat.className = 'n_seat';
+                  n_seat.innerText = `UD-${seat_no}`;
+                  n_seats_selected.appendChild(n_seat);
+                  console.log(tempArr.length);
+                  tempArr.push(seat_param);
+                  props.setTempArr(tempArr);
+                  console.log(tempArr);
+                  amount += bus_p;
+                  props.setamount(amount);
+                }
+                document.getElementById(`warn${busNo}`).style.display='none';
+              }
+              else{
+                document.getElementById(`warn${busNo}`).style.display='block';
               }
             }
           })
@@ -136,7 +145,7 @@ const Booking = (props) => {
     }
   }
 
-  const onClick=()=>{
+  const onClick = () => {
     console.log(tempArr);
   }
 
