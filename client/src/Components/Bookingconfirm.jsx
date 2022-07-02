@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import PassDiv from './PassDiv'
 
 const BookingConfirm = (props) => {
@@ -53,10 +52,11 @@ const BookingConfirm = (props) => {
 
   const setValue1 = (index, data) => {
     setValue({ ...value, [index]: data });
-    let tempObj2={...value, [index]: data}
-    localStorage.setItem('pass_info',JSON.stringify(tempObj2))
+    let tempObj2 = { ...value, [index]: data }
+    localStorage.setItem('pass_info', JSON.stringify(tempObj2))
   };
 
+  const time = JSON.parse(localStorage.getItem('time'))[props.busindex]
 
   return (
     <>
@@ -69,7 +69,7 @@ const BookingConfirm = (props) => {
               <p className="p_detail_h">Passenger Details</p>
               <div className="pass_sec" id="pass_sec">
                 {s.map((val, index) => {
-                  return <PassDiv key={index} index={index} setValue1={setValue1}/>
+                  return <PassDiv key={index} index={index} setValue1={setValue1} />
                 })}
               </div>
             </div>
@@ -85,7 +85,7 @@ const BookingConfirm = (props) => {
               <p className="text_h">{myObj.recieve_date}</p>
               <p className="text_h">{myObj.drop_date}</p>
               <p className="p_detail_h" style={{ borderBottom: "none" }}>{myObj.bus_time}-{myObj.bus_drops}</p>
-              <div className="bus_info2_item p_detail_h" style={{ borderBottom: "none" }}><span style={{ fontWeight: "bold" }}>3</span><sub style={{ color: "grey" }}>hrs</sub>0<sub style={{ color: "grey" }}>min</sub></div>
+              <div className="bus_info2_item p_detail_h" style={{ borderBottom: "none" }}><span style={{ fontWeight: "bold" }}>{time[0]}</span><sub style={{ color: "grey" }}>hrs</sub>{time[1]}<sub style={{ color: "grey" }}>min</sub></div>
             </div>
           </div>
           <div className="book_conf_btn book_seats">

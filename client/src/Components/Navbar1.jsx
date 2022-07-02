@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar1 = (props) => {
 
-
   const handleLogout = () => {
     localStorage.removeItem('token');
     props.showAlert('User logged out successfully','success')

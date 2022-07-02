@@ -1,10 +1,11 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
+var tempr = [];
 const Bus = (props) => {
 
   const { bus } = props
-
   const [flag, setflag] = useState(true);
+  const [time, settime] = useState([])
 
   const onClick = (props) => {
 
@@ -20,37 +21,43 @@ const Bus = (props) => {
     }
   }
 
- 
+  useEffect(() => {
+    let start_time = bus.bus_time;
+    let end_time = bus.bus_drops;
 
-  let start_time = bus.bus_time;
-  let end_time = bus.bus_drops;
+    const getTimeZone = (start_time, end_time) => {
+      var t1_arr = start_time.split(':');
+      var t2_arr = end_time.split(":");
 
-  const getTimeZone = (start_time, end_time) => {
-    var t1_arr = start_time.split(':');
-    var t2_arr = end_time.split(":");
+      var t_d = parseInt(t2_arr[0]) - parseInt(t1_arr[0])
 
-    var t_d = parseInt(t2_arr[0]) - parseInt(t1_arr[0])
+      if (t_d < 0) {
+        t2_arr[0] = parseInt(t2_arr[0]) + 24;
+      }
 
-    if (t_d < 0) {
-      t2_arr[0] = parseInt(t2_arr[0]) + 24;
+      var t1 = parseInt(t1_arr[0] * 60) + parseInt(t1_arr[1])
+      var t2 = parseInt(t2_arr[0] * 60) + parseInt(t2_arr[1])
+
+      var tt = t2 - t1
+      var tth = Math.floor(tt / 60);
+      var ttm = Math.floor(tt % 60);
+
+      return [tth, ttm];
     }
 
-    var t1 = parseInt(t1_arr[0] * 60) + parseInt(t1_arr[1])
-    var t2 = parseInt(t2_arr[0] * 60) + parseInt(t2_arr[1])
+    let ttt = getTimeZone(start_time, end_time);
+    tempr.push(ttt)
+    settime(tempr);
+  }, [])
 
-    var tt = t2 - t1
-    var tth = Math.floor(tt / 60);
-    var ttm = Math.floor(tt % 60);
 
-    return [tth, ttm];
+  if (time[props.id] !== undefined) {
+    var hr = time[props.id][0];
+    var min = time[props.id][1];
+    localStorage.setItem('time', JSON.stringify(tempr))
   }
 
-  let ttt = getTimeZone(start_time, end_time);
 
-  var tt_h = ttt[0];
-  var tt_m = ttt[1];
-
-  
   return (
     <>
       <div className="busBox">
@@ -64,7 +71,7 @@ const Bus = (props) => {
           <hr />
           <ul className="bus_info2">
             <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_time}, </span><span style={{ color: "grey" }}>{bus.bus_recieve_date}</span></li>
-            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }} className="hr">{tt_h}</span><sub style={{ color: "grey" }}>hrs</sub><span style={{ fontWeight: "bold" }} className="min">{tt_m}</span><sub style={{ color: "grey" }}>min</sub></li>
+            <li className="bus_info2_item"><span style={{ fontWeight: "bold" }} className="hr">{hr}</span><sub style={{ color: "grey" }}>hrs</sub><span style={{ fontWeight: "bold" }} className="min">{min}</span><sub style={{ color: "grey" }}>min</sub></li>
             <li className="bus_info2_item"><span style={{ fontWeight: "bold" }}>{bus.bus_drops},</span><span style={{ color: "grey" }}>{bus.bus_drop_date}</span></li>
           </ul>
           <hr />

@@ -39,22 +39,22 @@ const App = () => {
   const [tempArr, setTempArr] = useState([]);
   const [amount, setamount] = useState([]);
   const [bus, setbus] = useState([]);
+  const [busindex, setbusindex] = useState(0);
 
-  
   return (
     <>
       <BusState>
         <Theme />
         <div className="main">
           <Alert alert={alert} />
-          <Navbar1 showAlert={showAlert}/>
+          <Navbar1 showAlert={showAlert} />
           <Login showAlert={showAlert} />
           <Routes>
             <Route path='/' element={<MainHome showAlert={showAlert} />} />
             <Route path='/signup' element={<SignUp showAlert={showAlert} />} />
             <Route path='/tracking' element={<Tracking />} />
-            <Route path='/booking' element={<Booking tempArr={tempArr} setTempArr={setTempArr} amount={amount} setamount={setamount} bus={bus} setbus={setbus}/>} />
-            <Route path='/booking-confirm' element={<BookingConfirm tempArr={tempArr} amount={amount} bus={bus}/>} />
+            <Route path='/booking' element={<Booking tempArr={tempArr} setTempArr={setTempArr} amount={amount} setamount={setamount} bus={bus} setbus={setbus} busindex={busindex} setbusindex={setbusindex}/>} />
+            <Route path='/booking-confirm' element={<BookingConfirm tempArr={tempArr} amount={amount} bus={bus} busindex={busindex}/>} />
           </Routes>
         </div>
       </BusState>

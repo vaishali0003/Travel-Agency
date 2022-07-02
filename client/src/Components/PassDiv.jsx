@@ -45,9 +45,9 @@ const PassDiv = (props) => {
     return (
         <>
             <div className="pass_sec1">
-                <p className="pass_num">Passenger 1</p>
-                <input type="text" className="pIn" placeholder='PASSENGER NAME' name="pass_name" onChange={onChange} value={(item)?item_name:pass_info.pass_name} />
-                <input type="text" className="pIn" placeholder='PASSENGER AGE' name="pass_age" onChange={onChange} value={(item)?item_age:pass_info.pass_age} />
+                <p className="pass_num">Passenger {(props.index)+1}</p>
+                <input type="text" className="pIn" placeholder='PASSENGER NAME' name="pass_name" onChange={onChange} value={(item)?item_name:pass_info.pass_name} required/>
+                <input type="text" className="pIn" placeholder='PASSENGER AGE' name="pass_age" onChange={onChange} value={(item)?item_age:pass_info.pass_age} required/>
                 <div className="pass-gender" style={{ marginTop: "0.6rem" }} onChange={onChange} value={(item)?item_gend:pass_info.pass_gend}>
                     <input type="radio" name={`pass_gend${props.index}`} className='pass_gend' id={`Female${props.index}`} value="Female" />
                     <label htmlFor="female" className='label_gend'>Female</label>

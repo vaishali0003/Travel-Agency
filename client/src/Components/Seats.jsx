@@ -8,7 +8,6 @@ const Seats = (props) => {
   const { bus_seats, booked_seats } = props.bus;
 
   useEffect(() => {
-    console.log('yes');
     var b_s = booked_seats.split(',')
     var seats11 = document.getElementById(`seats${props.id}`)
     if (seats11) {
@@ -26,7 +25,6 @@ const Seats = (props) => {
       }
     }
   }, []);
-
 
 
   return (
@@ -65,9 +63,6 @@ const Seats = (props) => {
               </div>
               <div className="book_seats">
 
-                {/* <NavLink className='book_seat' to={`/booking-confirm`}>Book Seats</NavLink> */}
-
-                {/* <NavLink className='book_seat' onClick={props.onClickBook} to={`/booking-confirm`}>Book Seats</NavLink> */}
                 <button className='book_seat' onClick={props.onClickBook}>Book Seats</button>
               </div>
             </div>

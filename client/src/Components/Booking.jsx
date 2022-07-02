@@ -39,6 +39,7 @@ const Booking = (props) => {
     var bus1 = context.buses[busNo];
     if (bus1) {
       props.setbus(bus1);
+      props.setbusindex(busNo);
       var bus_p = context.buses[busNo].bus_price
     }
 
@@ -153,11 +154,10 @@ const Booking = (props) => {
     <>
       <div className="book">
         <Book />
-        <button onClick={onClick}>sdf</button>
         <div className="busesInfo">
           <div className="buses col-md-10 col-11">
             {(buses.length !== 0) ? buses.map((bus, index) => {
-              return <React.Fragment key={index}><Bus bus={bus} onClickBus={() => { onClickBus(index) }} time={props.time} settime={props.settime} />
+              return <React.Fragment key={index}><Bus bus={bus} onClickBus={() => { onClickBus(index) }} time={props.time} settime={props.settime} id={index}/>
                 <Seats bus={bus} id={index} onClickBook={() => { onClickBook(index) }} />
               </React.Fragment>
             }) : <h1 className="h1_head">No buses found</h1>
