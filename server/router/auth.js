@@ -7,7 +7,6 @@ JWT_SECRET = 'vaishaliisgoingtobeagooddeveloperinfuture';
 var jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
 
-
 router.post('/register', [
     body('firstname', 'Enter a valid name').isLength({ min: 3 }),
     body('lastname', 'Enter a valid name').isLength({ min: 3 }),
@@ -69,7 +68,7 @@ router.post('/login', [
     body('password', 'Password must not be blank').exists(),
 ], async (req, res) => {
 
-let success=false;
+    let success = false;
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         let tempArr = [];
@@ -101,10 +100,10 @@ let success=false;
             }
         }
 
-        success=true;
+        success = true;
 
         const authToken = jwt.sign(data, JWT_SECRET);
-        res.json({success,authToken });
+        res.json({ success, authToken });
 
     }
     catch (err) {
@@ -116,16 +115,16 @@ let success=false;
 
 // get loggedin user details
 
-router.get('/getuser', fetchuser, async(req, res) => {
+router.get('/getuser', fetchuser, async (req, res) => {
     try {
         userId = req.user.id;
         const user = await User.findById(userId).select("-password");
         res.json(user)
 
-    }  catch (error) {
+    } catch (error) {
         console.log(error);
         res.status(501).json({ message: 'Internal server error' })
-      }
+    }
 })
 
 

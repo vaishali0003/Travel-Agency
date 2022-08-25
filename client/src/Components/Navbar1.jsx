@@ -26,12 +26,12 @@ const Navbar1 = (props) => {
             <li className="nav-list-item"><NavHashLink to="/#homeSection">Home</NavHashLink></li>
             <li className="nav-list-item"><NavHashLink to="/#tracking">Tracking</NavHashLink></li>
             {
-              (!localStorage.getItem('token') ? <li className="nav-list-item"><NavHashLink to="/signup">Login/Signin</NavHashLink></li> : <li className="nav-list-item"><NavHashLink onClick={handleLogout} to="/signup">Logout</NavHashLink></li>)
+              (!localStorage.getItem('token') ? <li className="nav-list-item"><NavHashLink to="/#signup">Login/Signin</NavHashLink></li> : <li className="nav-list-item"><NavHashLink onClick={handleLogout} to="/signup">Logout</NavHashLink></li>)
             }
             <li className="nav-list-item"><NavHashLink to="/#packagesSection">Packages</NavHashLink></li>
             <li className="nav-list-item"><NavHashLink to="/#servicesSection">Services</NavHashLink></li>
             <li className="nav-list-item"><NavHashLink to="/#testimonialsSection">Testimonials</NavHashLink></li>
-            <li className="nav-list-item"><NavHashLink to="/#reviewsSection">Review</NavHashLink></li>
+            <li className="nav-list-item"><NavHashLink to="/#reviewsSection">Reviews</NavHashLink></li>
             <li className="nav-list-item"><NavHashLink to="/#contactSection">Contact</NavHashLink></li>
           </ul>
         </div>

@@ -26,6 +26,7 @@ const Login = (props) => {
         const json = await response.json();
         if (json.success) {
             props.showAlert('User logged in successfully', 'success');
+            console.log('success');
             localStorage.setItem('token', json.authToken);
             navigate('/');
         }
