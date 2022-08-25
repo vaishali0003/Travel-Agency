@@ -26,11 +26,9 @@ router.post('/bookings', async (req, res) => {
         return res.status(200).json({ bus: bus, type: "success", message: "Bus information entered successfully" });
     }
     catch (err) {
-        console.log(err)
         return res.status(200).json({ type: "danger", message: "Bus information not entered successfully", error: err });
     }
 })
-
 
 router.get('/fetchallbuses/:from/:to', async (req, res) => {
 

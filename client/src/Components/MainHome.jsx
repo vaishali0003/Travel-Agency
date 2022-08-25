@@ -4,19 +4,19 @@ import Home from './Home'
 import Packages from './Packages'
 import Services from './Services'
 import Testimonials from './Testimonials'
-import Review from './Review'
+import Reviews2 from './Reviews2'
 import Contact from './Contact'
 import Footer from './Footer'
 
-const MainHome = () => {
+const MainHome = (props) => {
   return (
     <>
         <Home/>
         <Packages />
         <Services />
         <Testimonials />
-        <Review />
-        <Contact />
+        <Reviews2 />
+        <Contact showAlert={props.showAlert}/>
         <Footer />
     </>
   )

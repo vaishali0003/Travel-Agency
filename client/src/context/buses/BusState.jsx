@@ -6,19 +6,20 @@ const BusState = (props) => {
     const host = "http://localhost:4300";
 
     const [buses, setbuses] = useState([])
+    // const [reviews, setreviews] = useState([])
 
     // to fetch all the buses for a given journey
     const fetchallbuses = async (from, to) => {
         // try {
-            const response = await fetch(`${host}/bus/fetchallbuses/${from}/${to}`, {
-                method: "GET",
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            
-            const json = await response.json()
-            setbuses(json);
+        const response = await fetch(`${host}/bus/fetchallbuses/${from}/${to}`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        const json = await response.json()
+        setbuses(json);
         // }
         // catch(error) {
         //     console.log(error);
@@ -26,8 +27,24 @@ const BusState = (props) => {
         // }
     }
 
+
+    // to fetch all the reviews
+    const fetchallreviews = async () => {
+        const response = await fetch(`${host}/reviews/fetchallreviews`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+
+        var data = await response.json();
+        // console.log(data);
+        return data;
+    }
+
+
     return (
-        <BusContext.Provider value={{ fetchallbuses,buses }}>
+        <BusContext.Provider value={{ fetchallbuses, buses, fetchallreviews}}>
             {props.children}
         </BusContext.Provider>
     )

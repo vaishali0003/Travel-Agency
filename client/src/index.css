@@ -27,7 +27,7 @@ code {
   box-shadow: 0 0 20px rgb(33 33 33 / 30%);
   top: 0;
   position: sticky;
-  z-index: 1;
+  z-index: 100;
 }
 
 .row {
@@ -40,10 +40,10 @@ code {
   width: 6.4rem;
 }
 
-.logoHeading {
+.logoHeading a{
   color: #8c4e97;
-  margin-left: 4px;
-  font-size: 2.5rem;
+  font-size: 2.5rem !important;
+  text-decoration: none;
 }
 
 .logo img {
@@ -488,10 +488,16 @@ code {
   font-size: 1.25rem;
 }
 
-.locName:hover {
+.locName a{
+  text-decoration: none;
+}
+.loca{
+  color: black;
+}
+
+.locName:hover{
   letter-spacing: 1px;
   text-decoration: underline;
-
 }
 
 /* LOGIN BOX CSS */
@@ -1017,7 +1023,7 @@ font-size: 16px;
 
 .bookingConfirm1{
   display: flex;
-  display: flex;
+  margin: 3rem;
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
@@ -1137,6 +1143,11 @@ font-size: 16px;
 
 .footerSectionDark {
   background-color: #3f3f3f;
+  color: white !important;
+}
+
+.locaDark{
+  color: white;
 }
 
 .loginBoxDark {
@@ -1154,4 +1165,12 @@ font-size: 16px;
 .fInDark {
   background-color: #3f3f3f;
   border: none;
+}
+
+.busBoxDark{
+  background-color: #3f3f3f;
+}
+
+.busBox2Dark{
+  background-color: #3f3f3f;
 }

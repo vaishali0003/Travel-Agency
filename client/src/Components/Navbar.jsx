@@ -6,9 +6,6 @@ const Navbar = (props) => {
     const location = useLocation();
 
     const showNav = () => {
-
-        console.log('showNav is clicked')
-
         let nav = document.querySelector('.nav-1');
         if (nav !== null) {
             if (nav.style.display === 'block') {
@@ -21,8 +18,6 @@ const Navbar = (props) => {
     }
 
     const showSignUp = () => {
-
-        console.log('showSignup is clicked')
 
         let loginBox = document.querySelector('.loginBox');
         if (loginBox !== null) {
@@ -70,7 +65,7 @@ const Navbar = (props) => {
                                 <img src="../images/logo.png" alt="img" />
                             </div>
                             <div className="logoHeading">
-                                <h2 style={{ fontWeight: "600" }}>Travel</h2>
+                                <a href="/"><h2 style={{ fontWeight: "600" }}>Travel</h2></a>
                             </div>
                         </div>
                         <div className="middle col-md-6">

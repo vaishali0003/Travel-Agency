@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { NavHashLink } from 'react-router-hash-link';
 
 const Footer = () => {
   return (
@@ -41,40 +42,39 @@ const Footer = () => {
               <ul className="footList">
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Home</p>
+                  <p className="locName"><NavHashLink to="/#homeSection" className="loca">Home</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Tracking</p>
+                  <p className="locName"><NavHashLink to="/#tracking" className="loca">Tracking</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Login/Signin</p>
+                  <p className="locName"><NavHashLink to="/#signup" className="loca">Login/Signin</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Packages</p>
+                  <p className="locName"><NavHashLink to="/#packagesSection" className="loca">Packages</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Services</p>
+                  <p className="locName"><NavHashLink to="/#servicesSection" className="loca">Services</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Testimonials</p>
+                  <p className="locName"><NavHashLink to="/#testimonialsSection" className="loca">Testimonials</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <NavLink to="/#reviewsSection"><p className="locName">Review</p></NavLink>
+                 <p className="locName"><NavHashLink to="/#reviewsSection" className="loca">Reviews</NavHashLink></p>
                 </li>
                 <li className="footLi">
                   <img src="../images/arrow.png" alt="" className='footLiImg' />
-                  <p className="locName">Contact</p>
+                  <p className="locName"><NavHashLink to="/#contactSection" className="loca">Contact</NavHashLink></p>
                 </li>
               </ul>
             </div>
             {/* </div> */}
-
 
             {/* <div className="col-md-3 d-flex flex-column align-content-center"> */}
             <div className="footerSec">

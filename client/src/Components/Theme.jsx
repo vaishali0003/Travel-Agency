@@ -56,6 +56,15 @@ const Theme = () => {
             document.querySelector('.footerSection').classList.add('footerSectionDark');
         }
 
+        let loca = document.querySelectorAll('.loca');
+
+        // if(loca!=null){
+        for (let i of loca) {
+            console.log(i);
+            i.classList.add('locaDark');
+        }
+        // }
+
         if (document.querySelector('.loginBox') !== null) {
             document.querySelector('.loginBox').classList.add('loginBoxDark');
         }
@@ -68,6 +77,20 @@ const Theme = () => {
         if (navListItems !== null) {
             for (let i of navListItems) {
                 i.classList.add('nav-list-item-dark')
+            }
+        }
+
+        const busBoxes = document.querySelectorAll('.busBox1');
+        if (busBoxes != null) {
+            for (let i of busBoxes) {
+                i.classList.add('busBoxDark');
+            }
+        }
+
+        const busBoxes2 = document.querySelectorAll('.busBox2');
+        if (busBoxes2 != null) {
+            for (let i of busBoxes2) {
+                i.classList.add('busBox2Dark');
             }
         }
 
@@ -91,7 +114,7 @@ const Theme = () => {
         document.querySelector('.logo').classList.remove('logoDark');
         document.querySelector('.main').classList.remove('mainDark');
 
-        if(document.querySelector('.homeSec2')!==null){
+        if (document.querySelector('.homeSec2') !== null) {
             document.querySelector('.homeSec2').classList.remove('homeSec2Dark');
         }
 
@@ -166,7 +189,19 @@ const Theme = () => {
             }
         }
 
+        const busBoxes = document.querySelectorAll('.busBox1');
+        if (busBoxes != null) {
+            for (let i of busBoxes) {
+                i.classList.remove('busBoxDark');
+            }
+        }
 
+        const busBoxes2 = document.querySelectorAll('.busBox2');
+        if (busBoxes2 != null) {
+            for (let i of busBoxes2) {
+                i.classList.remove('busBox2Dark');
+            }
+        }
         document.getElementById('themeLogo').src = '../images/moon.svg';
 
         localStorage.setItem('mode', 'lightMode')
