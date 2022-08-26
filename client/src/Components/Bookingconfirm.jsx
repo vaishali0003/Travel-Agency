@@ -2,8 +2,27 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import PassDiv from './PassDiv'
+import html2canvas from 'html2canvas';
 
 const BookingConfirm = (props) => {
+
+  let conf_seat=document.getElementById('conf_seat');
+
+  if(conf_seat!=null){
+    conf_seat.onclick=function(){
+      const sctarget=document.getElementById('bookingConfirm11');
+      html2canvas(sctarget).then((canvas)=>{
+  const base64img=canvas.toDataURL("image/png");
+  var anchor=document.createElement('a');
+  anchor.setAttribute('href',base64img);
+  anchor.setAttribute('download','ticket');
+  anchor.click();
+  anchor.remove();
+      });
+    }
+  }
+
+ 
 
   const { bus } = props;
 
@@ -60,11 +79,11 @@ const BookingConfirm = (props) => {
 
   return (
     <>
-      <div className="bookingConfirm">
-        <div className="bookingConfirm1 col-md-8">
+      <div className="bookingConfirm" id="bookingConfirm">
+        <div className="bookingConfirm1 col-md-8" id='bookingConfirm1'>
           <h1 className="h1_head" style={{ textAlign: "center" }}>Booking Confirmation</h1>
 
-          <div className="bookingConfirm11">
+          <div className="bookingConfirm11" id="bookingConfirm11">
             <div className="bookingConfirm11_1">
               <p className="p_detail_h">Passenger Details</p>
               <div className="pass_sec" id="pass_sec">
@@ -89,7 +108,7 @@ const BookingConfirm = (props) => {
             </div>
           </div>
           <div className="book_conf_btn book_seats">
-            {!localStorage.getItem('token') ? <NavLink className="conf_proceed book_seat" to='/signup?booking_conf=true'>Confirm and Submit</NavLink> : <button className="conf_proceed book_seat">Confirm and Submit</button>}
+            {!localStorage.getItem('token') ? <NavLink className="conf_proceed book_seat" to='/signup?booking_conf=true'>Confirm and Submit</NavLink> : <button className="conf_proceed book_seat" id='conf_seat'>Confirm and Submit</button>}
           </div>
         </div>
       </div>

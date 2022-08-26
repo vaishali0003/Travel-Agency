@@ -1001,6 +1001,7 @@ font-size: 16px;
 .book_seats{
   width: 100%;
   text-align: center;
+  padding: 1rem 1.5rem;
 }
 
 .book_seat{
@@ -1011,6 +1012,7 @@ font-size: 16px;
   background-color: orange;
   color: white;
   font-size: 1.2rem;
+  border: none;
 }
 
 /* CONFIRM BOOKING CSS */
@@ -1027,7 +1029,7 @@ font-size: 16px;
     flex-direction: column;
     background-color: white;
     border-radius: 10px;
-    padding: 1rem 1.8rem;
+    /* padding: 1rem 1.8rem; */
 }
 
 .bookingConfirm11{
@@ -1035,6 +1037,7 @@ font-size: 16px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
+  padding: 1rem 2.8rem;
 }
 
 .bookingConfirm11_1{

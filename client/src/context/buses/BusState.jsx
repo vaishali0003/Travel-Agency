@@ -16,17 +16,19 @@ const BusState = (props) => {
             headers: {
                 'Content-Type': 'application/json',
             }
-        })
+        });
 
-        const json = await response.json()
+        const json = await response.json();
+
         setbuses(json);
+
+        return json;
         // }
         // catch(error) {
         //     console.log(error);
         //     window.alert('Some internal error occured')
         // }
     }
-
 
     // to fetch all the reviews
     const fetchallreviews = async () => {

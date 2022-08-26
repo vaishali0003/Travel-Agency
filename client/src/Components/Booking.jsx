@@ -15,9 +15,11 @@ const Booking = (props) => {
 
   const navigate = useNavigate();
   const [flag, setflag] = useState(false)
+  const [buses, setBuses] = useState([]);
 
   const context = useContext(BusContext);
-  const { fetchallbuses, buses } = context;
+  // const { fetchallbuses, buses } = context;
+  const { fetchallbuses } = context;
 
   const [searchParams, setSearchParams] = useSearchParams();
   const from = searchParams.get("from")
@@ -25,10 +27,19 @@ const Booking = (props) => {
   const date = searchParams.get("date")
   const [busNo, setBusNo] = useState(null);
   const [tempStr, setTempStr] = useState([]);
+  const [loadFlag, setLoadFlag] = useState(true);
 
+  const getData=async ()=>{
+    let ans = await fetchallbuses(from, to);
+    setBuses(ans);
+  };
 
   useEffect(() => {
-    fetchallbuses(from, to);
+    // setLoadFlag(true);
+    // let ans = await fetchallbuses(from, to);
+    // setBuses(ans);
+    getData();
+    // setLoadFlag(false);
   }, [from, to]);
 
   // MY CODE
@@ -61,7 +72,7 @@ const Booking = (props) => {
               console.log(tempArr);
               props.setTempArr(tempArr);
               amount -= bus_p;
-              document.getElementById(`warn${busNo}`).style.display='none';
+              document.getElementById(`warn${busNo}`).style.display = 'none';
             }
             else {
               if (tempArr.length <= 3) {
@@ -79,10 +90,10 @@ const Booking = (props) => {
                   amount += bus_p;
                   props.setamount(amount);
                 }
-                document.getElementById(`warn${busNo}`).style.display='none';
+                document.getElementById(`warn${busNo}`).style.display = 'none';
               }
-              else{
-                document.getElementById(`warn${busNo}`).style.display='block';
+              else {
+                document.getElementById(`warn${busNo}`).style.display = 'block';
               }
             }
           })
@@ -149,7 +160,7 @@ const Booking = (props) => {
   const onClick = () => {
     console.log(tempArr);
   }
-
+  // bun js
   return (
     <>
       <div className="book">
@@ -157,7 +168,7 @@ const Booking = (props) => {
         <div className="busesInfo">
           <div className="buses col-md-10 col-11">
             {(buses.length !== 0) ? buses.map((bus, index) => {
-              return <React.Fragment key={index}><Bus bus={bus} onClickBus={() => { onClickBus(index) }} time={props.time} settime={props.settime} id={index}/>
+              return <React.Fragment key={index}><Bus bus={bus} onClickBus={() => { onClickBus(index) }} time={props.time} settime={props.settime} id={index} />
                 <Seats bus={bus} id={index} onClickBook={() => { onClickBook(index) }} />
               </React.Fragment>
             }) : <h1 className="h1_head">No buses found</h1>
@@ -169,4 +180,4 @@ const Booking = (props) => {
   )
 }
 
-export default Booking
+export default Booking;
